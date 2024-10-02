@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM: To-Do List</title>
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <div>
+        <input type="text" id="inputField"></input>
+        <button id="btn" onclick="addTodo()">Add To-Do</button>
+    </div>
+</body>
+
+<script>
+
+    let counter = 1;
+    let comp_num = 1; // for mark as complete
+    function addTodo(){
+
+        const newTask = document.querySelector("input").value
+
+        const newDiv = document.createElement("div")
+        const comp = document.createElement("div")
+        newDiv.setAttribute("id", counter)
+        comp.setAttribute("id", comp_num)
+        newDiv.innerHTML = `${newTask} <button onclick="deleteTask(${counter})">Delete</button>`
+        comp.innerHTML = `<button onclick="mark_completed(${comp_num})">Mark as completed.</button>`
+        
+        document.querySelector("body").appendChild(newDiv)
+        document.getElementById(counter).appendChild(comp)
+
+        counter = counter + 1;
+        comp_num = comp_num + 1;
+    }
+
+
+
+    function deleteTask(index){
+        const element = document.getElementById(index)
+        element.parentNode.removeChild(element)
+    }
+
+    function mark_completed(comp_num){
+        const elmnt = document.getElementById(comp_num)
+        elmnt.style.textDecoration = 'line-through'
+    }
+</script>
+
+</html>

@@ -1,0 +1,139 @@
+body{
+    background-color: black;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 5px;
+}
+.navigation a{
+    text-decoration: none;
+    color: #9d9d9d;
+    
+}
+
+a{
+    font-size: 1.05em;
+    font-family: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+    padding-inline: 7px;
+    font-weight: 500;
+}
+a:hover{
+    color: white;
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+}
+.img{
+    width: 26px;
+    height: 26px;
+}
+#main{
+    color: white;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-left: 10px;
+
+}
+.search-container{
+    position: relative;
+}
+.search-container input{
+    padding-block: 7px;
+    margin-right: 5px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: black;
+    border-color: #323232;
+}
+.search-container button{
+    background-color: #0078d4;
+    color: white;
+    cursor: pointer;
+    padding-inline: 12px;
+    padding-block: 7px;
+    border-radius: 4px;
+    border-style: none;
+    font-weight: 500;
+    font-size: 1em;
+    font-family: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
+.banner{
+    color: #9d9d9d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;
+}
+.version{
+    color: #9d9d9d;
+    font-family: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    margin-top: 30px;
+    text-align: center;
+}
+.banner2{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    align-items: center;
+    gap: 7em;
+    
+
+}
+.div-one{
+    display: inline-block;
+    color: #9d9d9d;
+    font-family: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: thin;
+    border-color: #323232;
+    background-color: rgba(255,255,255,0.12);
+    padding-inline: 10px;
+    padding-block: 7px;
+    margin-right: 10px;
+}
+.banner img{
+    width: 800px;
+    height: 500px;
+}
+
+.banner2 h1{
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+.banner2 button{
+    background-color: #0078d4;
+    color: white;
+    padding-block: 13px;
+    font-family: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 3px;
+    border-width: 1px;
+    padding-inline: 10px;
+    margin-right: 30px;
+    
+}
+
+.p-1{
+    color: #9d9d9d;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+.p-2{
+    color: #9d9d9d;
+    font-size: 0.7em;
+    font-family: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
