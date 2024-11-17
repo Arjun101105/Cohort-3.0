@@ -6,26 +6,44 @@ import './App.css'
 function App() {
 
 
+  let [counterVisible, setCounterVisible] = useState(true);
+
+
+  useEffect(function(){
+    setInterval(() => {
+      setCounterVisible(c=>!c)
+    }, 5000);
+  },[])
+
+
   return (
    <div>
-    <Counter></Counter>
+  {counterVisible ? <Counter></Counter>: null} 
+    
    </div>
 
   
 
   )
 
-  function Counter() {
+    function Counter() {
     const [count, setCount] = useState(0)
 
     useEffect(function(){
+      console.log(`on mounting ... `);
 
-      setInterval(function(){
+      let clockCounter = setInterval(function(){
+        console.log(`from inside setInterval`);
         setCount(count=>count+1)
       }, 1000);
 
+      return function(){
+        console.log(`unmounting`);
+        clearInterval(clockCounter)
+      }
 
     },[])
+
     
     function increaseCount(){
       setCount(count+1)
