@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/object.ts","./src/prob1.ts","./src/prob2.ts","./src/prob3.ts"],"version":"5.7.2"}
+{"root":["./src/index.ts","./src/interface.ts","./src/object.ts","./src/prob1.ts","./src/prob2.ts","./src/prob3.ts"],"version":"5.7.2"}
