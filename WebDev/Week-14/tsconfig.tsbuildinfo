@@ -1,1 +1,1 @@
-{"root":["./src/class.ts","./src/index.ts","./src/interface.ts","./src/interface2.ts","./src/interface3.ts","./src/object.ts","./src/prob1.ts","./src/prob2.ts","./src/prob3.ts"],"errors":true,"version":"5.7.2"}
+{"root":["./src/class.ts","./src/extends.ts","./src/index.ts","./src/interface.ts","./src/interface2.ts","./src/interface3.ts","./src/object.ts","./src/prob1.ts","./src/prob2.ts","./src/prob3.ts","./src/unioins&intersection.ts"],"errors":true,"version":"5.7.2"}
