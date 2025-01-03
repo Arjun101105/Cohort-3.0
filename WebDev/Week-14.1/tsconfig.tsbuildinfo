@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/pick.ts"],"version":"5.7.2"}
+{"root":["./src/index.ts","./src/partial.ts","./src/pick.ts"],"version":"5.7.2"}
