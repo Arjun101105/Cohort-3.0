@@ -1,10 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
-import { ContentModel, UserModel } from './db';
+import { ContentModel, LinkModel, UserModel } from './db';
 import { isMetaProperty } from 'typescript';
 import { JWT_SECRET } from './config';
 import { userMiddleware } from './middleware';
+import { random } from './utils';
 
 const app = express();
 app.use(express.json());
@@ -86,12 +87,66 @@ app.delete("/api/v1/content",userMiddleware, async (req,res)=>{
     })
 })
 
-app.post("/api/v1/brain/share", (req,res)=>{
-
+app.post("/api/v1/brain/share",userMiddleware, async(req,res)=>{
+    const share = req.body.share;
+    if(share){
+        const existingLink = await LinkModel.findOne({
+            // @ts-ignore
+            userId: req.userId
+        })
+        if(existingLink){
+            res.status(411).json({
+                message:"Link already exists",
+                shareLink:"/api/v1/brain/share" + existingLink.hash
+            })
+            return;
+        }
+        const hash = random(10);
+        await LinkModel.create({
+            // @ts-ignore
+            userId: req.userId,
+            hash: hash
+        })
+        res.json({
+            message:"Link shared successfully",
+            shareLink:"/api/v1/brain/share" + hash
+        })
+    }else{
+       await LinkModel.deleteOne({
+            // @ts-ignore
+            userId: req.userId
+        })
+        res.json({
+            message:"Link deleted successfully"
+        })
+    }
+    
 })
 
-app.get("/api/v1/brain/:shareLink", (req,res)=>{
-    
+app.get("/api/v1/brain/:shareLink", async (req,res)=>{
+    const hash = req.params.shareLink;
+    const link = await LinkModel.findOne({
+        hash
+    })
+    if(!link){
+        res.status(411).json({
+            message:"Link not found -_- !"  
+        })
+        return;
+    }
+
+    const content = await ContentModel.findOne({
+        userId: link.userId
+    })
+
+    const user = await UserModel.findOne({
+        _id: link.userId
+    })
+
+    res.json({
+        username: user?.username,
+        content: content
+    })
 })
 
 app.listen(3000, ()=>{
