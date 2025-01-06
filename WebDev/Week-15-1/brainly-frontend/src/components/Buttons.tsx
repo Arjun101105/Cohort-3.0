@@ -9,7 +9,8 @@ export interface ButtonProps {
     text: string;
     startIcon?:ReactElement;
     endIcon?:ReactElement;
-    onClick:()=>void;
+    onClick?:()=>void;
+    loading?:boolean;
 }
 
 const variantStyles = {
@@ -28,10 +29,12 @@ const sizeStyles = {
 }
 
 
-export const Button = (props: ButtonProps) => {
-    return <button className={`${variantStyles[props.variant]} ${defaultStyles.rounded} ${sizeStyles[props.size]} mt-4 `}>
-        {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null}
-        {props.text}
-        {props.endIcon} 
+export const Button = ({variant, text, startIcon, endIcon,size, onClick,loading}: ButtonProps) => {
+    return <button onClick={onClick} className={`${variantStyles[variant]} ${defaultStyles.rounded} ${sizeStyles[size]} mt-4 ${loading? "opacity-45" :""}`} disabled = {loading}>
+        {startIcon ? <div className="pr-2">{startIcon}</div> : null}
+        {text}
+        {endIcon} 
         </button>
 }
+
+
