@@ -24,7 +24,7 @@ export function Signup(){
         <h1 className="text-2xl font-bold ">Sign-Up</h1> <br />
         <div className="bg-white rounded-xl border p-8">
             <Input reference={usernameRef} placeholder="Username"/>
-            <Input reference={passwordRef} placeholder="Password"/>
+            <Input reference={passwordRef} placeholder="Password" type="password"/>
             <div className="flex justify-center pt-4">
             <Button onClick={signup} text="Sign-Up" variant="primary" size="md" />
             </div>

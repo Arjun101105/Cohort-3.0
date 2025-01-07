@@ -30,6 +30,8 @@ export function CreateContentModal({open, onClose}) {
             }
         })
         onClose();
+        alert("Content Added Successfully")
+        window.location.reload()
     }
 
     return<div>

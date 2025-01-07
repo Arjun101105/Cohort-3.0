@@ -1,5 +1,6 @@
 export interface IconProps {
     size: "sm" | "md" | "lg";
+    type?: "youtube" | "twitter" | "project";
 }
 
 export const iconSizes = {

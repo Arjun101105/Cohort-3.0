@@ -6,3 +6,4 @@ export const ShareIcon = (props: IconProps) => {
   </svg>
   
 }
+

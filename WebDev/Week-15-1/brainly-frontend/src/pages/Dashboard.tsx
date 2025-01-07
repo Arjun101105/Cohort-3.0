@@ -7,11 +7,15 @@ import { Sidebar } from "../components/Sidebar";
 import { PlusIcon } from "../icons/Plusicon";
 import { ShareIcon } from "../icons/Shareicon";
 import { useContent } from "../hooks/useContent";
+import { BACKEND_URL } from "../config";
+import axios from "axios";
 
 function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const contents = useContent();
   console.log(contents)
+
+
   return (
     <div>
       <Sidebar />
@@ -23,12 +27,21 @@ function Dashboard() {
           }}
           />
         <div className="flex justify-end gap-4">
-          <Button
+          <Button onClick={async () => {
+            const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`, {
+                share: true
+            }, {
+                headers: {
+                    "Authorization": localStorage.getItem("token")
+                }
+            });
+              const shareLink = `${response.data.shareLink}`
+              alert(`Share Link: ${shareLink}`)
+            }}
             startIcon={<ShareIcon size="md" />}
             size="md"
             variant="secondary"
             text="Share Brain"
-            onClick={() => {}}
           />
           <Button
             onClick={() => {

@@ -21,10 +21,10 @@ export function Signin(){
 
     return <div className="h-screen w-screen flex justify-center items-center">
         <div className="flex-row ">
-        <h1 className="text-2xl font-bold ">Sign-In</h1> <br />
+        <h1 className="text-2xl font-bold ">Login</h1> <br />
         <div className="bg-white rounded-xl border p-8">
             <Input reference={usernameRef} placeholder="Username"/>
-            <Input reference={passwordRef} placeholder="Password"/>
+            <Input reference={passwordRef} placeholder="Password" type="password"/>
             <div className="flex justify-center pt-4">
             <Button onClick={signin} text="Sign-In" variant="primary" size="md" />
             </div>
